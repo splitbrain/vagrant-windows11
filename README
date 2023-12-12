@@ -1,0 +1,5 @@
+# Windows 11 Vagrant Setup
+
+Use the following to connect:
+
+  xfreerdp /u:vagrant /p:vagrant /v:localhost:53389 /size:1800x1000 +clipboard +home-drive
