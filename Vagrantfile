@@ -13,7 +13,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", path: "scripts/network.ps1", privileged: false
   config.vm.provision "shell", path: "scripts/debloat.ps1", privileged: false
   config.vm.provision "shell", path: "scripts/install-npp.ps1", privileged: false
-  #config.vm.provision "shell", path: "scripts/install-firefox.ps1", privileged: false
+  config.vm.provision "shell", path: "scripts/install-firefox.ps1", privileged: false
   config.vm.provision "shell", path: "scripts/install-chrome.ps1", privileged: false
-
+  config.vm.provision "shell", reboot: true
 end
