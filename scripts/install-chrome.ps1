@@ -1,10 +1,12 @@
-$Uri = "https://dl.google.com/chrome/install/latest/chrome_installer.exe"
-$Installer = Join-Path $env:TEMP "ChromeStandaloneSetup64.exe"
+$ProgressPreference = 'SilentlyContinue'
+
+$Uri = "https://dl.google.com/dl/chrome/install/googlechromestandaloneenterprise64.msi"
+$Installer = Join-Path $env:TEMP "chromesetup.msi"
 
 echo "Downloading Chrome installer..."
 Invoke-WebRequest -Uri $Uri -OutFile $Installer
 
 echo "Running Chrome installer..."
-Start-Process -FilePath $Installer -Args "/install" -Verb RunAs -Wait;
+Start-Process msiexec.exe -Wait -ArgumentList "/I",$Installer,"/quiet"
 
 Remove-Item $Installer
