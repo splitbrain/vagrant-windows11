@@ -1,6 +1,6 @@
-# Windows 11 Vagrant Setup
+# Windows Vagrant Setup
 
-This vagrant box spins up a Windows 11 Enterprise Evaluation machine with Chrome, Firefox and Notepad++ preinstalled.
+This vagrant box spins up a Windows Enterprise Evaluation machine with Chrome, Firefox and Notepad++ preinstalled.
 
 The Windows is debloated during the setup (removing all the bullshit Microsoft is preinstalling).
 
@@ -11,15 +11,20 @@ The keyboard is set to a German layout. Adjust `scripts/keyboard.ps1` if you wan
 
 To start the machine run
 
-  vagrant up
+    vagrant up
 
 To stop the machine run
 
-  vagrant halt
+    vagrant halt
 
 When the license expires or you want to restart from scratch run
 
-  vagrant destroy
+    vagrant destroy
+
+By default a Windows 11 machine is used. You can alternatively start a Windows 10 machine:
+
+    vagrant up win10
+
 
 ## GUI
 
@@ -31,4 +36,4 @@ Login with vagrant/vagrant
 
 Use the following to connect:
 
-  xfreerdp /u:vagrant /p:vagrant /v:localhost:53389 /size:1800x1000 +clipboard +home-drive
+    xfreerdp /u:vagrant /p:vagrant /v:localhost:53389 /size:1800x1000 +clipboard +home-drive
