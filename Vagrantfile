@@ -16,4 +16,10 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", path: "scripts/install-firefox.ps1", privileged: false
   config.vm.provision "shell", path: "scripts/install-chrome.ps1", privileged: false
   config.vm.provision "shell", reboot: true
+
+
+  # Display the VirtualBox GUI when booting the machine
+  config.vm.provider "virtualbox" do |vb|
+    vb.gui = true
+  end
 end
