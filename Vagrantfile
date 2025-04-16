@@ -13,10 +13,6 @@ Vagrant.configure("2") do |config|
     win10.vm.hostname = "win10"
   end
 
-  # workaround for gusztavvargadr/packer#420
-  config.winrm.transport = :plaintext
-  config.winrm.basic_auth_only = true
-
   # provisioning
   config.vm.provision "shell", path: "scripts/keyboard.ps1", privileged: false
   config.vm.provision "shell", path: "scripts/network.ps1", privileged: false
@@ -30,5 +26,9 @@ Vagrant.configure("2") do |config|
   # Display the VirtualBox GUI when booting the machine
   config.vm.provider "virtualbox" do |vb|
     vb.gui = true
+    vb.memory = "16384"
+    vb.customize ["modifyvm", :id, "--vram", "256"]
+    vb.customize ["modifyvm", :id, "--accelerate-3d", "on"]
+    vb.cpus = 2
   end
 end
